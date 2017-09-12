@@ -8,10 +8,12 @@
 
 import Foundation
 
-public enum MIMEType: String, CustomStringConvertible {
+public enum MIMEType: String {
     case plain = "text/plain"
     case html = "text/html"
-    
+}
+
+extension MIMEType: CustomStringConvertible {
     public var description: String {
         return rawValue
     }
