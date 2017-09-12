@@ -28,7 +28,7 @@ public class Sendmail {
         let pipe = Pipe()
         process.standardInput = pipe
         
-        guard let data = message.messageString.data(using: .utf8) else {
+        guard let data = String(describing: message).data(using: .utf8) else {
             Logger.error("unable to construct message data")
             return
         }

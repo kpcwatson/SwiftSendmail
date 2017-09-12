@@ -26,18 +26,17 @@ public enum TransferEncoding: String, CustomStringConvertible {
     }
 }
 
-public protocol MIMEMessage {
+public protocol MIMEMessage: CustomStringConvertible {
     var sender: String { get }
     var recipients: [String] { get }
     var subject: String { get }
     var type: MIMEType { get }
     var transferEncoding: TransferEncoding { get }
     var body: String { get }
-    var messageString: String { get }
 }
 
 extension MIMEMessage {
-    public var messageString: String {
+    public var description: String {
         var m = [String]()
         m.append("From: \(sender)")
         m.append("To: \(recipients.joined(separator: ", "))")
