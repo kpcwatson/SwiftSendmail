@@ -17,21 +17,11 @@ public enum MIMEType: String, CustomStringConvertible {
     }
 }
 
-public enum TransferEncoding: String, CustomStringConvertible {
-    case sevenBit = "7bit"
-    case quotedPrintable = "quoted-printable"
-    
-    public var description: String {
-        return rawValue
-    }
-}
-
 public protocol MIMEMessage: CustomStringConvertible {
     var sender: String { get }
     var recipients: [String] { get }
     var subject: String { get }
     var type: MIMEType { get }
-    var transferEncoding: TransferEncoding { get }
     var body: String { get }
 }
 
@@ -42,7 +32,6 @@ extension MIMEMessage {
         m.append("To: \(recipients.joined(separator: ", "))")
         m.append("Subject: \(subject)")
         m.append("Content-Type: \(type); charset=\"UTF-8\"")
-        m.append("Content-transfer-encoding: \(transferEncoding)")
         return m.joined(separator: "\n") + "\n\n\(body)"
     }
 }

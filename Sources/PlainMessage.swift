@@ -10,7 +10,6 @@ import Foundation
 
 public struct PlainMessage: MIMEMessage {
     public let type = MIMEType.plain
-    public let transferEncoding = TransferEncoding.sevenBit
     public let sender: String
     public let recipients: [String]
     public let subject: String

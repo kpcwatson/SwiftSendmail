@@ -10,7 +10,6 @@ import Foundation
 
 public struct HTMLMessage: MIMEMessage {
     public let type = MIMEType.html
-    public let transferEncoding = TransferEncoding.quotedPrintable
     public let sender: String
     public let recipients: [String]
     public let subject: String
