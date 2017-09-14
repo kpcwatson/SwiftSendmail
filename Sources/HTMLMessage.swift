@@ -16,8 +16,8 @@ public struct HTMLMessage: MIMEMessage {
     public let body: String
     
     public init(sender: String, recipients: [String], subject: String, body: String) {
-        self.sender = "<" + sender + ">"
-        self.recipients = recipients.map { "<" + $0 + ">" }
+        self.sender = sender
+        self.recipients = recipients
         self.subject = subject
         self.body = body
     }
